@@ -1,6 +1,8 @@
 #include <termios.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <linux/serial.h>
+#include <sys/ioctl.h>
 
 #include <iostream>
 #include <thread>
@@ -23,6 +25,7 @@ int main(int argc, char** argv)
         return 1;
     }
 
+    // stty -F /dev/ttyUSB0 -cooked
     {
         termios settings;
         int error = tcgetattr(fd, &settings);
@@ -34,6 +37,23 @@ int main(int argc, char** argv)
         error = tcsetattr(fd, TCSADRAIN, &settings);
         if (error) {
             perror("tcsetattr");
+            return 1;
+        }
+    }
+
+    // setserial /dev/ttyUSB0 low_latency
+    {
+        serial_struct serinfo;
+        int error = ioctl(fd, TIOCGSERIAL, &serinfo);
+        if (error == -1) {
+            perror("ioctl(TIOCGSERIAL)");
+            return 1;
+        }
+        serinfo.flags |= ASYNC_LOW_LATENCY;
+
+        error = ioctl(fd, TIOCSSERIAL, &serinfo);
+        if (error == -1) {
+            perror("ioctl(TIOCSSERIAL)");
             return 1;
         }
     }
