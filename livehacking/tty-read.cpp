@@ -47,6 +47,7 @@ int main(int argc, char** argv)
             perror("ioctl(TIOCGSERIAL)");
             return 1;
         }
+
         serinfo.flags |= ASYNC_LOW_LATENCY;
 
         error = ioctl(fd, TIOCSSERIAL, &serinfo);

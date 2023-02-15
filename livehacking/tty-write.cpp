@@ -9,7 +9,7 @@ using namespace std;
 int main(int argc, char** argv)
 {
     if (argc != 3) {
-        cerr << "Usage: " << argv[0] << "<device> <sent-content>" << endl;
+        cerr << "Usage: " << argv[0] << " <device> <sent-content>" << endl;
         return 1;
     }
 
@@ -25,12 +25,18 @@ int main(int argc, char** argv)
 
     {
         termios settings;
+
+        // retrieve current setting from driver
         int error = tcgetattr(fd, &settings);
         if (error) {
             perror("tcgetattr");
             return 1;
         }
+
+        // add "raw mode" to settings
         cfmakeraw(&settings);
+
+        // write back new setting
         error = tcsetattr(fd, TCSADRAIN, &settings);
         if (error) {
             perror("tcsetattr");
