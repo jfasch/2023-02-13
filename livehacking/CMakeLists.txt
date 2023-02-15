@@ -8,6 +8,7 @@ ADD_EXECUTABLE(c++-thread c++-thread.cpp)
 TARGET_LINK_LIBRARIES(c++-thread Threads::Threads)
 
 ADD_EXECUTABLE(race-condition race-condition.cpp)
+TARGET_LINK_LIBRARIES(race-condition Threads::Threads)
 
 ADD_EXECUTABLE(tty-write tty-write.cpp)
 ADD_EXECUTABLE(tty-read tty-read.cpp)
