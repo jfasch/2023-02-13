@@ -1,5 +1,6 @@
 #include <termios.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <fcntl.h>
 #include <linux/serial.h>
 #include <sys/ioctl.h>
