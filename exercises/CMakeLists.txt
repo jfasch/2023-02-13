@@ -1,7 +1,12 @@
 ADD_EXECUTABLE(
-  mycat
-  mycat.cpp
+  mycat-joerg.faschingbauer
+  mycat-joerg.faschingbauer.cpp
   )
+
+
+
+
+
 
 
 
