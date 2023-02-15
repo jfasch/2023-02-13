@@ -7,9 +7,7 @@ ADD_EXECUTABLE(c++-iostream c++-iostream.cpp)
 ADD_EXECUTABLE(c++-thread c++-thread.cpp)
 TARGET_LINK_LIBRARIES(c++-thread Threads::Threads)
 
-
-ADD_EXECUTABLE(tty-bidir tty-bidir.cpp)
-TARGET_LINK_LIBRARIES(tty-bidir Threads::Threads)
-
 ADD_EXECUTABLE(tty-write tty-write.cpp)
 ADD_EXECUTABLE(tty-read tty-read.cpp)
+ADD_EXECUTABLE(tty-bidir-threads tty-bidir-threads.cpp)
+TARGET_LINK_LIBRARIES(tty-bidir-threads Threads::Threads)
