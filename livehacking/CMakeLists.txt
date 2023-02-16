@@ -20,3 +20,5 @@ ADD_EXECUTABLE(LM73 LM73.cpp)
 
 ADD_EXECUTABLE(can-sensor can-sensor.cpp)
 ADD_EXECUTABLE(can-display can-display.cpp)
+
+ADD_EXECUTABLE(little-endian little-endian.cpp)
