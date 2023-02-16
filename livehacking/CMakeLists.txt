@@ -15,3 +15,5 @@ ADD_EXECUTABLE(tty-read tty-read.cpp)
 ADD_EXECUTABLE(tty-bidir-threads tty-bidir-threads.cpp)
 TARGET_LINK_LIBRARIES(tty-bidir-threads Threads::Threads)
 ADD_EXECUTABLE(tty-bidir-events tty-bidir-events.cpp)
+
+ADD_EXECUTABLE(LM73 LM73.cpp)
