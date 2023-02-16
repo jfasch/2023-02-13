@@ -17,3 +17,6 @@ TARGET_LINK_LIBRARIES(tty-bidir-threads Threads::Threads)
 ADD_EXECUTABLE(tty-bidir-events tty-bidir-events.cpp)
 
 ADD_EXECUTABLE(LM73 LM73.cpp)
+
+ADD_EXECUTABLE(can-sensor can-sensor.cpp)
+ADD_EXECUTABLE(can-display can-display.cpp)
