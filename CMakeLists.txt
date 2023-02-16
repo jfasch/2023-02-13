@@ -12,3 +12,6 @@ endif()
 ADD_SUBDIRECTORY(googletest)
 ADD_SUBDIRECTORY(livehacking)
 ADD_SUBDIRECTORY(exercises)
+
+ADD_SUBDIRECTORY(company)
+ADD_SUBDIRECTORY(company-bin)
