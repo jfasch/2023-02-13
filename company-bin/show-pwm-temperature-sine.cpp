@@ -7,7 +7,7 @@
 #include <cmath>
 using namespace std;
 
-const double TWO_PI = 2*3.142;
+const double PI = 3.14159265359;
 const unsigned NSTEPS = 100;
 
 int main(int argc, char** argv)
@@ -19,7 +19,7 @@ int main(int argc, char** argv)
         for (unsigned i=0; i<NSTEPS; i++) {
             double f = sin(x);
             cout << f << endl;
-            x += TWO_PI/NSTEPS;
+            x += 2*PI/NSTEPS;
             nanosleep(&gap, nullptr);
         }
     }
