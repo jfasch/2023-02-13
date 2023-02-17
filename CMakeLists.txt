@@ -15,3 +15,4 @@ ADD_SUBDIRECTORY(exercises)
 
 ADD_SUBDIRECTORY(company)
 ADD_SUBDIRECTORY(company-bin)
+ADD_SUBDIRECTORY(company-tests)
