@@ -12,6 +12,9 @@ ADD_LIBRARY(
 
   display-pwm.h
   display-pwm.cpp
+
+  display-can.h
+  display-can.cpp
 )  
 
 TARGET_INCLUDE_DIRECTORIES(

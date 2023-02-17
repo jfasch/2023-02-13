@@ -1,8 +1,10 @@
 #pragma once
 
+#include "display.h" 
+
 #include <string>
 
-class PWMDisplay
+class PWMDisplay : public Display
 {
 public:
     PWMDisplay(const std::string& sysfsdir, double low, double high);
