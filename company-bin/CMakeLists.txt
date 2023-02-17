@@ -7,6 +7,9 @@ TARGET_LINK_LIBRARIES(read-lm73-sensor company)
 ADD_EXECUTABLE(show-pwm-temperature show-pwm-temperature.cpp)
 TARGET_LINK_LIBRARIES(show-pwm-temperature company)
 
+ADD_EXECUTABLE(show-pwm-temperature-sine show-pwm-temperature-sine.cpp)
+TARGET_LINK_LIBRARIES(show-pwm-temperature-sine company)
+
 ADD_EXECUTABLE(set-sysfs-gpio-switch set-sysfs-gpio-switch.cpp)
 TARGET_LINK_LIBRARIES(set-sysfs-gpio-switch company)
 

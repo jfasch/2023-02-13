@@ -8,9 +8,11 @@
 using namespace std;
 
 
-PWMDisplay::PWMDisplay(const std::string& sysfsdir)
+PWMDisplay::PWMDisplay(const std::string& sysfsdir, double low, double high)
 : _period(sysfsdir + "/period"),
-  _duty_cycle(sysfsdir + "/duty_cycle")
+  _duty_cycle(sysfsdir + "/duty_cycle"),
+  _low(low),
+  _high(high)
 {
     int perfd = open(_period.c_str(), O_WRONLY);
     if (perfd == -1) {
@@ -33,8 +35,10 @@ PWMDisplay::PWMDisplay(const std::string& sysfsdir)
 
 void PWMDisplay::show_temperature(double temperature)
 {
-    if (temperature > 40)
-        temperature = 40;
+    if (temperature > _high)
+        temperature = _high;
+    if (temperature < _low)
+        temperature = _low;
 
     int dutyfd = open(_duty_cycle.c_str(), O_WRONLY);
     if (dutyfd == -1) {
@@ -43,7 +47,8 @@ void PWMDisplay::show_temperature(double temperature)
         throw runtime_error(msg.str().c_str());
     }
 
-    uint64_t duty_cycle = temperature / 40 * 1000000;
+    // scale to max
+    uint64_t duty_cycle = temperature / _high * 1000000;
 
     ostringstream period_s;
     period_s << duty_cycle << ends;
